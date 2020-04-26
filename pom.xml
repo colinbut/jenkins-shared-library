@@ -15,6 +15,8 @@
         <jenkins.workflow.step.version>2.6</jenkins.workflow.step.version>
         <jenkins.workflow.cps.version>2.36</jenkins.workflow.cps.version>
         <jenkins.servlet.version>3.1.0</jenkins.servlet.version>
+        <junit.plugin.version>1.24</junit.plugin.version>
+        <google.guava.version>20.0</google.guava.version>
     </properties>
 
     <repositories>
@@ -24,6 +26,17 @@
             <url>http://repo.jenkins-ci.org/releases</url>
         </repository>
     </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Transitive Dependencies that need Managing -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google.guava.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
 
@@ -77,6 +90,12 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${jenkins.servlet.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.plugin.version}</version>
         </dependency>
 
     </dependencies>

@@ -8,7 +8,12 @@
     <description>Jenkins Shared Library (by Colin But)</description>
 
     <properties>
+        <junit.version>4.12</junit.version>
         <jenkins-spock.version>2.0.0</jenkins-spock.version>
+        <jenkins.version>2.102</jenkins.version>
+        <jenkins.workflow.step.version>2.6</jenkins.workflow.step.version>
+        <jenkins.workflow.cps.version>2.36</jenkins.workflow.cps.version>
+        <jenkins.servlet.version>3.1.0</jenkins.servlet.version>
     </properties>
 
     <repositories>
@@ -26,6 +31,46 @@
             <version>${jenkins-spock.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>jenkins-core</artifactId>
+            <version>${jenkins.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-step-api</artifactId>
+            <version>${jenkins.workflow.step.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-cps</artifactId>
+            <version>${jenkins.workflow.cps.version}</version>
+            <scope>test</scope>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.jenkins-ci</groupId>-->
+<!--            <artifactId>symbol-annotation</artifactId>-->
+<!--            <version>${jenkins.symbol.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${jenkins.servlet.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>

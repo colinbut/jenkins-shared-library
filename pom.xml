@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mycompany.colinbut</groupId>
+    <artifactId>jenkins-shared-library</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <description>Jenkins Shared Library (by Colin But)</description>
+
+    <properties>
+        <jenkins-spock.version>2.0.0</jenkins-spock.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jenkins-releases</id>
+            <name>Jenkins Releases</name>
+            <url>http://repo.jenkins-ci.org/releases</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.homeaway.devtools.jenkins</groupId>
+            <artifactId>jenkins-spock</artifactId>
+            <version>${jenkins-spock.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

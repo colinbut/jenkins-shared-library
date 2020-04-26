@@ -8,7 +8,7 @@
     <description>Jenkins Shared Library (by Colin But)</description>
 
     <properties>
-        <groovy.core.version>2.4.6</groovy.core.version>
+        <groovy.core.version>2.4.11</groovy.core.version>
         <junit.version>4.12</junit.version>
         <jenkins-spock.version>2.0.0</jenkins-spock.version>
         <jenkins.version>2.102</jenkins.version>
@@ -17,6 +17,11 @@
         <jenkins.servlet.version>3.1.0</jenkins.servlet.version>
         <junit.plugin.version>1.24</junit.plugin.version>
         <google.guava.version>20.0</google.guava.version>
+        <log.slf4j.version>1.7.25</log.slf4j.version>
+        <log.logback.version>1.2.3</log.logback.version>
+        <test.loglevel>WARN</test.loglevel>
+        <logdir>${project.build.directory}/log</logdir>
+
     </properties>
 
     <repositories>
@@ -54,31 +59,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jenkins-ci.main</groupId>
-            <artifactId>jenkins-core</artifactId>
-            <version>${jenkins.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.plugins.workflow</groupId>
-            <artifactId>workflow-step-api</artifactId>
-            <version>${jenkins.workflow.step.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.plugins.workflow</groupId>
-            <artifactId>workflow-cps</artifactId>
-            <version>${jenkins.workflow.cps.version}</version>
-            <scope>test</scope>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.jenkins-ci</groupId>-->
-<!--            <artifactId>symbol-annotation</artifactId>-->
-<!--            <version>${jenkins.symbol.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
@@ -86,16 +66,24 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${jenkins.servlet.version}</version>
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>jenkins-core</artifactId>
+            <version>${jenkins.version}</version>
             <scope>test</scope>
         </dependency>
 
+        <!-- provides echo() step -->
         <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.plugin.version}</version>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-basic-steps</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-cps</artifactId>
+            <version>${jenkins.workflow.cps.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -119,11 +107,18 @@
             <version>3.9.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- provides echo() step -->
+
         <dependency>
-            <groupId>org.jenkins-ci.plugins.workflow</groupId>
-            <artifactId>workflow-basic-steps</artifactId>
-            <version>2.6</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${jenkins.servlet.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.plugin.version}</version>
         </dependency>
 
     </dependencies>
@@ -147,10 +142,10 @@
                             </includes>
                             <useManifestOnlyJar>false</useManifestOnlyJar>
                             <systemPropertyVariables>
-                                <root.loglevel>ERROR</root.loglevel>
+                                <root.loglevel>${test.loglevel}</root.loglevel>
                                 <root.appender>Stdout</root.appender>
-                                <test.loglevel>ERROR</test.loglevel>
-<!--                                <logdir>${logdir}</logdir>-->
+                                <test.loglevel>${test.loglevel}</test.loglevel>
+                                <logdir>${logdir}</logdir>
                             </systemPropertyVariables>
                         </configuration>
                     </execution>
@@ -174,7 +169,6 @@
                             <goal>removeTestStubs</goal>
                         </goals>
                         <configuration>
-                            <configScript>config.groovy</configScript>
                             <sources>
                                 <source>
                                     <directory>src</directory>

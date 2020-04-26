@@ -8,6 +8,7 @@
     <description>Jenkins Shared Library (by Colin But)</description>
 
     <properties>
+        <groovy.core.version>2.4.6</groovy.core.version>
         <junit.version>4.12</junit.version>
         <jenkins-spock.version>2.0.0</jenkins-spock.version>
         <jenkins.version>2.102</jenkins.version>
@@ -25,6 +26,13 @@
     </repositories>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy.core.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.homeaway.devtools.jenkins</groupId>
             <artifactId>jenkins-spock</artifactId>
@@ -75,6 +83,32 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <executions>
+                    <execution>
+                        <id>default-test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <forkCount>1</forkCount>
+                            <includes>
+                                <include>${test.pattern}</include>
+                            </includes>
+                            <useManifestOnlyJar>false</useManifestOnlyJar>
+                            <systemPropertyVariables>
+                                <root.loglevel>ERROR</root.loglevel>
+                                <root.appender>Stdout</root.appender>
+                                <test.loglevel>ERROR</test.loglevel>
+<!--                                <logdir>${logdir}</logdir>-->
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>

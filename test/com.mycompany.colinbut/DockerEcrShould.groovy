@@ -14,6 +14,31 @@ class DockerEcrShould extends Specification {
         dockerEcr = new DockerEcr(script)
     }
 
+    def "Test login to AWS ECR Docker Registry using AWS CLI 1"() {
+        when:
+            dockerEcr.loginToAWSECRDockerRegistry(1)
+        then:
+            1 * script.sh(
+                    """
+                    aws ecr get-login --region eu-west-2 --no-include-email \
+                    | awk '{printf \$6}' \
+                    | docker login -u AWS https://066203203749.dkr.ecr.eu-west-2.amazonaws.com --password-stdin
+                    """
+            )
+    }
+
+    def "Test login to AWS ECR Docker Registry using AWS CLI 2"() {
+        when:
+            dockerEcr.loginToAWSECRDockerRegistry(2)
+        then:
+        1 * script.sh(
+                    """
+                    aws ecr get-login-password --region eu-west-2 \
+                    | docker login -u AWS https://066203203749.dkr.ecr.eu-west-2.amazonaws.com --password-stdin
+                    """
+        )
+    }
+
     def "Test buildDockerImage"() {
         setup:
             def git = GroovyMock(Git.class, global:true)
@@ -23,5 +48,16 @@ class DockerEcrShould extends Specification {
         then:
             1 * git.commitHash() >> "${COMMIT_HASH}"
             1 * script.sh("docker build -t microservice-name:${COMMIT_HASH} .")
+    }
+
+    def "Test publishDockerImage"() {
+        setup:
+            def git = GroovyMock(Git.class, global:true)
+            new Git(script) >> git
+        when:
+            dockerEcr.publishDockerImageToECR("microservice-name")
+        then:
+            1 * git.commitHash() >> "${COMMIT_HASH}"
+            1 * script.sh("docker push microservice-name:${COMMIT_HASH}")
     }
 }

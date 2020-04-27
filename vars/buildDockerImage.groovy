@@ -1,10 +1,10 @@
-import com.mycompany.colinbut.Git
+import com.mycompany.colinbut.DockerEcr
 
 def call(Map args, Closure body={}) {
     node {
-        def git = new Git(this)
+        def dockerEcr = new DockerEcr(this)
         stage("Build Docker Image") {
-            sh "docker build -t ${args.microserviceName}:${git.commitHash()} ."
+            dockerEcr.buildDockerImage("${args.microserviceName}")
         }
         body()
     }

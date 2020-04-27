@@ -2,6 +2,8 @@ import com.mycompany.colinbut.DockerEcr
 
 def call(Map args) {
     node {
+        git url: "https://github.com/colinbut/${args.repo}.git"
+
         stage("Compile") {
             sh "./mvnw clean compile"
         }

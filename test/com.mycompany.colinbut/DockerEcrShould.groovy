@@ -61,6 +61,6 @@ class DockerEcrShould extends Specification {
             dockerEcr.publishDockerImageToECR("microservice-name")
         then:
             1 * git.commitHash() >> "${COMMIT_HASH}"
-            1 * script.sh("docker push https://066203203749.dkr.ecr.eu-west-2.amazonaws.com:microservice-name:${COMMIT_HASH}")
+            1 * script.sh("docker push 066203203749.dkr.ecr.eu-west-2.amazonaws.com:microservice-name:${COMMIT_HASH}")
     }
 }

@@ -40,6 +40,7 @@ class DockerEcr implements Serializable {
         loginToAWSECRDockerRegistry(1)
 
         def git = new Git(this.script)
-        script.sh("docker push ${dockerRegistryUrl}/${microserviceName}:${git.commitHash()}")
+        String dockerRepositoryIdentifier = "${dockerRegistryUrl}".replace("https://","")
+        script.sh("docker push ${dockerRepositoryIdentifier}/${microserviceName}:${git.commitHash()}")
     }
 }

@@ -46,6 +46,6 @@ class DockerEcr implements Serializable {
         loginToAWSECRDockerRegistry(awsCliMajorVersion.toInteger())
 
         def git = new Git(this.script)
-        script.sh("docker push ${microserviceName}:${git.commitHash()}")
+        script.sh("docker push ${dockerRegistryUrl}/${microserviceName}:${git.commitHash()}")
     }
 }

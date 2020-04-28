@@ -8,7 +8,7 @@ class Git implements Serializable {
         this.script = script
     }
 
-    checkout(String repo) {
+    def checkout(String repo) {
         this.script.git credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/colinbut/${repo}.git"
     }
 

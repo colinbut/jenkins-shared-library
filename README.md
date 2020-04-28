@@ -42,7 +42,7 @@ Alternatively, you can check out this example demo project which shows some use 
 
 ## Release Notes
 
-__v1.0.0__
+__v0.0.1__
 + basic Global Variables (steps) to build:
     + a Java App
     + a full pipeline of building a Java App (from checkout to deployment)

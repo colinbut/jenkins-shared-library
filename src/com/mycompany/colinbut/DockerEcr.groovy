@@ -37,11 +37,7 @@ class DockerEcr implements Serializable {
     }
 
     void publishDockerImageToECR(String microserviceName) {
-        // get aws cli version installed on Jenkins Node
-        // Jenkins Node is built from Amazon Linux 2 so would have aws-cli pre bundled
-        def awsCli = new AwsCli(this.script)
-        String awsCliVersionString = awsCli.getAwsCliVersionString()
-        loginToAWSECRDockerRegistry(awsCliVersionString.toInteger())
+        loginToAWSECRDockerRegistry(1)
 
         def git = new Git(this.script)
         script.sh("docker push ${dockerRegistryUrl}/${microserviceName}:${git.commitHash()}")

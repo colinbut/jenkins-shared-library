@@ -55,14 +55,11 @@ class DockerEcrShould extends Specification {
     def "Test publishDockerImage"() {
         String awsCliVersionString = "aws-cli/1.16.300 Python/2.7.16 Linux/4.14.154-128.181.amzn2.x86_64 botocore/1.13.36"
         setup:
-            def awsCli = GroovyMock(AwsCli.class, global: true)
-            new AwsCli(script) >> awsCli
             def git = Mock(Git.class)
             new Git(script) >> git
         when:
             dockerEcr.publishDockerImageToECR("microservice-name")
         then:
-            1 * awsCli.getAwsCliVersionString() >> awsCliVersionString
             1 * git.commitHash() >> "${COMMIT_HASH}"
             1 * script.sh("docker push https://066203203749.dkr.ecr.eu-west-2.amazonaws.com:microservice-name:${COMMIT_HASH}")
     }

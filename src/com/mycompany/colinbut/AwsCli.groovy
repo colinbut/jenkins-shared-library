@@ -9,6 +9,6 @@ class AwsCli implements Serializable {
     }
 
     String getAwsCliVersionString(){
-        return this.script.sh(script: "aws --version", returnStdout: true)
+        return this.script.sh(script: "aws --version", returnStdout: true).substring(8,9)
     }
 }

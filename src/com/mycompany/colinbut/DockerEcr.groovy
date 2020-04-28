@@ -41,9 +41,14 @@ class DockerEcr implements Serializable {
         // Jenkins Node is built from Amazon Linux 2 so would have aws-cli pre bundled
         def awsCli = new AwsCli(this.script)
         String awsCliVersionString = awsCli.getAwsCliVersionString()
+        System.out.println(awsCliVersionString)
         String awsCliVersion = awsCliVersionString.split(' ')[0]
+        System.out.println(awsCliVersion)
         String awsCliVersionSemVer = awsCliVersion.split('/')[1]
+        System.out.println(awsCliVersionSemVer)
         String awsCliMajorVersion = awsCliVersionSemVer.split("\\.")[0]
+        System.out.println(awsCliMajorVersion)
+
         loginToAWSECRDockerRegistry(awsCliMajorVersion.toInteger())
 
         def git = new Git(this.script)

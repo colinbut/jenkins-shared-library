@@ -48,12 +48,11 @@ class DockerEcrShould extends Specification {
             dockerEcr.buildDockerImage("microservice-name")
         then:
             1 * git.commitHash() >> "${COMMIT_HASH}"
-            1 * script.sh("docker build -t microservice-name:${COMMIT_HASH} .")
+            1 * script.sh("docker build -t 066203203749.dkr.ecr.eu-west-2.amazonaws.com/microservice-name:${COMMIT_HASH} .")
     }
 
     @Ignore
     def "Test publishDockerImage"() {
-        String awsCliVersionString = "aws-cli/1.16.300 Python/2.7.16 Linux/4.14.154-128.181.amzn2.x86_64 botocore/1.13.36"
         setup:
             def git = Mock(Git.class)
             new Git(script) >> git
@@ -61,6 +60,6 @@ class DockerEcrShould extends Specification {
             dockerEcr.publishDockerImageToECR("microservice-name")
         then:
             1 * git.commitHash() >> "${COMMIT_HASH}"
-            1 * script.sh("docker push 066203203749.dkr.ecr.eu-west-2.amazonaws.com:microservice-name:${COMMIT_HASH}")
+            1 * script.sh("docker push 066203203749.dkr.ecr.eu-west-2.amazonaws.com/microservice-name:${COMMIT_HASH}")
     }
 }

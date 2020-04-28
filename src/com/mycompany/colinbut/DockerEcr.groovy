@@ -37,6 +37,7 @@ class DockerEcr implements Serializable {
     }
 
     void publishDockerImageToECR(String microserviceName) {
+        loginToAWSECRDockerRegistry(1)
         def git = new Git(this.script)
         script.sh("docker push ${microserviceName}:${git.commitHash()}")
     }

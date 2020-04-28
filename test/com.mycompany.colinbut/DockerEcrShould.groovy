@@ -1,6 +1,5 @@
 package com.mycompany.colinbut
 
-import spock.lang.Ignore
 import spock.lang.Specification
 
 class DockerEcrShould extends Specification {
@@ -51,10 +50,9 @@ class DockerEcrShould extends Specification {
             1 * script.sh("docker build -t 066203203749.dkr.ecr.eu-west-2.amazonaws.com/microservice-name:${COMMIT_HASH} .")
     }
 
-    @Ignore
     def "Test publishDockerImage"() {
         setup:
-            def git = Mock(Git.class)
+            def git = GroovyMock(Git.class, global: true)
             new Git(script) >> git
         when:
             dockerEcr.publishDockerImageToECR("microservice-name")

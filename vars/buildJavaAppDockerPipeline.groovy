@@ -5,7 +5,8 @@ def call(Map args=[:]) {
     node {
         stage("Checkout") {
            // git credentialsId: 'github_credentials', url: "https://github.com/colinbut/${args.repo}.git"
-           new Git(this).checkout("${args.repo}")
+            echo args.repo
+           new Git(this).checkout(args.repo)
         }
     }
     return this

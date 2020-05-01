@@ -1,4 +1,11 @@
+import com.mycompany.colinbut.Git
+
 def call(Map args) {
+    node {
+        stage("Checkout") {
+            new Git(this).checkout(args.repo)
+        }
+    }
     return this
 }
 

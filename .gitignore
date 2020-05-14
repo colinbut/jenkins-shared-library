@@ -1,2 +1,7 @@
 .idea
 target
+.vscode
+.classpath
+.factorypath
+.project
+.settings

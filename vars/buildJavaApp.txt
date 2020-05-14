@@ -1,7 +1,7 @@
 This global variable does a standard simple build of maven-based Java app.
 i.e. Compile > Unit Test > Integration Test > Package the Artifact as a Jar
 
-__repo__
+<h2>repo<h2>
         the repository name of the project to build
 
 

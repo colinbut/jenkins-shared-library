@@ -1,0 +1,17 @@
+builds a javascript app managed by npm.
+<br>
+this global var designed specically for building a react app.
+
+<br>
+runs through the following build stages/steps:
+
+<ul>
+    <li>checkout code</li>
+    <li><code>npm install</code></li>
+    <li><code>npm run build</code></li>
+    <li>deploys to an environment if <strong>config</strong> argument is set</li>
+</ul>
+
+<br>
+<p style="font-size:14px;"><strong>repo</strong><br><span style="text-indent:40px;display:inline-block;">name of repo to checkout to build</p>
+<p style="font-size:14px;"><strong>config</strong><br><span style="text-indent:40px;display:inline-block;">"true" to deploy otherwise don't deploy</p>

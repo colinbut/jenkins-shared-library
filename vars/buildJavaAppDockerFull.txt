@@ -19,6 +19,6 @@ Notes:
 - expects the microservice project to be using maven wrapper
 
 <p style="font-size:14px;"><strong>repo</strong><br><span style="text-indent:40px;display:inline-block;">the repository name of the project to build</span></p>
-<p style="font-size:14px;"><strong>microserviceName</strong><br><span style="text-indent:40px;display:inline-block;">the name of the project to build a docker image for</span></p>
+<p style="font-size:14px;"><strong>microserviceName</strong><br><span style="text-indent:40px;display:inline-block;">the name of the project</span></p>
 
 

@@ -1,0 +1,8 @@
+utility wrappers around logging with different levels:
+
+<ul>
+    <li>INFO</li>
+    <li>WARNING</li>
+    <li>DEBUG</li>
+    <li>ERROR</li>
+</ul>

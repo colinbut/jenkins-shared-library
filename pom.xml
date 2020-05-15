@@ -4,7 +4,7 @@
     <groupId>com.mycompany.colinbut</groupId>
     <artifactId>jenkins-shared-library</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <description>Jenkins Shared Library (by Colin But)</description>
 
     <properties>

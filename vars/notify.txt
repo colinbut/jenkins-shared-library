@@ -1,0 +1,1 @@
+Utility wrapper for sending notifications via Slack or Email.

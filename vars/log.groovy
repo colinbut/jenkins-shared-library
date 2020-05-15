@@ -17,3 +17,7 @@ def error(message) {
 def trace(message) {
     echo "TRACE: ${message}"
 }
+
+def fatal(message) {
+    echo "FATAL: ${message}"
+}

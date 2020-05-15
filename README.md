@@ -1,5 +1,7 @@
 # Jenkins Shared Library
 
+[![CircleCI](https://circleci.com/gh/colinbut/jenkins-shared-library.svg?style=svg)](https://circleci.com/gh/colinbut/jenkins-shared-library)
+
 This is my personal Jenkins Shared Library.
 
 This repository contains a library of Jenkins Global Variables & Helper Variables that I can use in my project's `Jenkinsfile`

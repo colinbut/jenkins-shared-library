@@ -1,0 +1,8 @@
+Publishes a docker image with the name from microserviceName to AWS ECR
+
+i.e. does a "docker push microserviceName:[latest commit tag]"
+
+<p style="font-size:14px;"><strong>awsCliVersion</strong><br><span style="text-indent:40px;display:inline-block;">choosing the aws cli version to use</span><br>note that it can be version 1 or version 2.</p>
+<p style="font-size:14px;"><strong>microserviceName</strong><br><span style="text-indent:40px;display:inline-block;">the name of the project to publish a docker image for</span></p>
+
+

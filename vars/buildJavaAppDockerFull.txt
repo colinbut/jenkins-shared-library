@@ -1,0 +1,24 @@
+Runs through a typical java app build pipeline that the app gets packaged up in a Docker container.
+This global variable represents an opinionated build workflow for a Java Docker App.
+i.e. goes through basic maven build lifecycle then does a docker image build then pushes it onto Docker Registry.
+
+Full Steps:
+<ul>
+<li>Compile</li>
+<li>Unit Test</li>
+<li>Integration Test</li>
+<li>Static Code Analysis using SonarQube</li>
+<li>Builds the artifact jar</li>
+<li>Docker Image Build</li>
+<li>Docker Image Push</li>
+<li>Deploys to the Dev environment</li>
+</ul>
+
+Notes:
+- uses AWS ECR by default and currently doesn't support overriding
+- expects the microservice project to be using maven wrapper
+
+<p style="font-size:14px;"><strong>repo</strong><br><span style="text-indent:40px;display:inline-block;">the repository name of the project to build</span></p>
+<p style="font-size:14px;"><strong>microserviceName</strong><br><span style="text-indent:40px;display:inline-block;">the name of the project to build a docker image for</span></p>
+
+

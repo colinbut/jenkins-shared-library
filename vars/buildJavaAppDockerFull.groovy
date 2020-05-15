@@ -1,9 +1,10 @@
+import com.mycompany.colinbut.Constants
 import com.mycompany.colinbut.DockerEcr
 
 def call(Map args) {
     node {
         stage("Checkout") {
-            git credentialsId: 'github_credentials', url: "https://github.com/colinbut/${args.repo}.git"
+            git credentialsId: Constants.JENKINS_GITHUB_CREDENTIALS_ID, url: "https://github.com/colinbut/${args.repo}.git"
         }
 
         stage("Compile") {
@@ -20,8 +21,9 @@ def call(Map args) {
 
         stage("Static Code Analysis: Sonar") {
             echo "Running static code analysis using Sonar"
-            //sh "./mvnw sonar:sonar"
-
+            withSonarQubeEnv(credentialsId: Constants.SONARQUBE_CREDENTIALS_ID, installationName: Constants.SONARQUBE_INSTALLATION_NAME) {
+                    sh './mvnw sonar:sonar'
+            }
         }
 
         stage("Package Artifact Jar") {

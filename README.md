@@ -42,6 +42,11 @@ See under `vars/` to see list of full available Global Variables/Helper Variable
 Alternatively, you can check out this example demo project which shows some use cases of this Shared Library:
 [Jenkins Pipelines](http://github.com/colinbut/jenkins-pipelines.git)
 
+### Configuration
+
+A lot of the configuration for external systems (Github, SonarQube etc) are set in the `Constants.groovy` constants class. 
+You can edit this to match according to your settings.
+
 ## Release Notes
 
 __v0.0.1__

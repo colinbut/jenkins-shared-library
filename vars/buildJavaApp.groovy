@@ -3,7 +3,6 @@ import com.mycompany.colinbut.Git
 def call(Map args=[:], Closure body={}) {
     node {
         stage("Checkout") {
-            // git credentialsId: 'github_credentials', url: "https://github.com/colinbut/${args.repo}.git"
             new Git(this).checkout("${args.repo}")
         }
 

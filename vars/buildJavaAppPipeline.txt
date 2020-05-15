@@ -1,10 +1,12 @@
 A decomposed global variable with each individual build step encapsulated as a separate global variable.
 
-- Checkout code
-- Compile
-- Unit Tests
-- Integration Tests
-- Package Artifacts (as jars)
-- Publish to Nexus
-- Publish to Artifactory
-- runs any additional post build steps (passed in)
+<ul>
+    <li>Checkout code</li>
+    <li>Compile</li>
+    <li>Unit Tests</li>
+    <li>Integration Tests</li>
+    <li>Package Artifacts (as jars)</li>
+    <li>Publish to Nexus</li>
+    <li>Publish to Artifactory</li>
+    <li>runs any additional post build steps (passed in)</li>
+</ul>

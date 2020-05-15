@@ -1,10 +1,12 @@
 A decomposed global variable with each individual build step encapsulated as a separate global variable.
 
-- Checkout code
-- Compile
-- Unit Tests
-- Integration Tests
-- Package Artifacts (as jars)
-- Builds docker image
-- Publishes docker image to AWS ECR
-- runs any additional post build steps (passed in)
+<ul>
+    <li>Checkout code</li>
+    <li>Compile</li>
+    <li>Unit Tests</li>
+    <li>Integration Tests</li>
+    <li>Package Artifacts (as jars)</li>
+    <li>Builds docker image</li>
+    <li>Publishes docker image to AWS ECR</li>
+    <li>runs any additional post build steps (passed in)</li>
+</ul>

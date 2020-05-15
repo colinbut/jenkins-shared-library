@@ -1,0 +1,9 @@
+A decomposed global variable with each individual build step encapsulated as a separate global variable.
+
+- Compile
+- Unit Tests
+- Integration Tests
+- Package Artifacts (as jars)
+- Builds docker image
+- Publishes docker image to AWS ECR
+- runs any additional post build steps (passed in)

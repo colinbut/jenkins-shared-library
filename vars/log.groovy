@@ -13,3 +13,7 @@ def debug(message) {
 def error(message) {
     echo "ERROR: ${message}"
 }
+
+def trace(message) {
+    echo "TRACE: ${message}"
+}

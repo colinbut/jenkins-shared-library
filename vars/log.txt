@@ -5,4 +5,5 @@ utility wrappers around logging with different levels:
     <li>WARNING</li>
     <li>DEBUG</li>
     <li>ERROR</li>
+    <li>TRACE</li>
 </ul>

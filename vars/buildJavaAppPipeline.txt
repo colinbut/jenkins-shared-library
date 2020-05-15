@@ -5,6 +5,6 @@ A decomposed global variable with each individual build step encapsulated as a s
 - Unit Tests
 - Integration Tests
 - Package Artifacts (as jars)
-- Builds docker image
-- Publishes docker image to AWS ECR
+- Publish to Nexus
+- Publish to Artifactory
 - runs any additional post build steps (passed in)

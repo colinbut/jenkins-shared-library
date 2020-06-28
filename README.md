@@ -57,6 +57,11 @@ The documentation is in (.txt) file format and contains HTML.
 
 ## Release Notes
 
+__v0.0.2__
++ global variables documentation
++ new log levels (fatal, trace) to log utility
++ support for sonar in pipeline jobs
+
 __v0.0.1__
 + basic Global Variables (steps) to build:
     + a Java App

@@ -9,7 +9,7 @@
 
     <properties>
         <groovy.core.version>2.4.11</groovy.core.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <jenkins-spock.version>2.0.0</jenkins-spock.version>
         <jenkins.version>2.102</jenkins.version>
         <jenkins.workflow.step.version>2.6</jenkins.workflow.step.version>

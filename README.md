@@ -47,7 +47,7 @@ Alternatively, you can check out this example demo project which shows some use 
 A lot of the configuration for external systems (Github, SonarQube etc) are set in the `Constants.groovy` constants class. 
 You can edit this to match according to your settings.
 
-### Gloval Vars Documentation
+### Global Vars Documentation
 
 Each of the global variables (helper functions) has its own documentation (corresponding *.txt file). You can access these documentation on the __Global Variable Reference__ link on the navigation sidebar of pipeline jobs that imported this shared library. 
 

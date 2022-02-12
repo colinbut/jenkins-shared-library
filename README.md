@@ -55,6 +55,10 @@ Note that as per Jenkins documentation this is only visible after one successful
 
 The documentation is in (.txt) file format and contains HTML.
 
+## Author
+
+Colin But
+
 ## Release Notes
 
 __v0.0.2__

@@ -15,7 +15,7 @@
         <jenkins.workflow.step.version>2.6</jenkins.workflow.step.version>
         <jenkins.workflow.cps.version>2.36</jenkins.workflow.cps.version>
         <jenkins.servlet.version>3.1.0</jenkins.servlet.version>
-        <junit.plugin.version>1.24</junit.plugin.version>
+        <junit.plugin.version>1166.va_436e268e972</junit.plugin.version>
         <google.guava.version>20.0</google.guava.version>
         <log.slf4j.version>1.7.25</log.slf4j.version>
         <log.logback.version>1.2.3</log.logback.version>

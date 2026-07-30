@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "jenkins-shared-library"
+  description: library of custom docker images
+  tags:
+    - java
+spec:
+  type: library
+  owner: user:guest
+  lifecycle: production

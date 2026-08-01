@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: "jenkins-shared-library"
-  description: library of custom docker images
+  description: library of pipeline code for jenkins pipelines
   tags:
     - java
 spec:
